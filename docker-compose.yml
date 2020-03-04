@@ -1,0 +1,14 @@
+version: '3'
+services:
+  app:
+    build: .
+    command: python RSDoorBellServer.py
+    restart: always
+    ports:
+      - 127.0.0.1:8006:8000
+    volumes:
+      - .:/code
+    devices:
+      - /dev/snd:/dev/snd
+    env_file:
+      - .env
